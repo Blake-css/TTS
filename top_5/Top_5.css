@@ -1,0 +1,38 @@
+.title {
+	text-align: center;
+}
+
+.subtitle {
+	text-align: center;
+}
+
+.container {
+	text-align: center;
+	margin-left:-5px;
+  	background-color: DarkSalmon;
+  	
+}
+
+.place {
+	margin:121px;
+	border:10px solid black;
+	
+}
+
+.Lobster {
+	display: inline-block;
+}
+
+.ex1 {
+  width:100%;
+  background-color: DarkSalmon;
+  padding:4px;
+  border:10px;
+  margin:auto; }
+
+.image{
+	margin-left:49px; 
+	background-image: url("https://dynaimage.cdn.cnn.com/cnn/q_auto,w_412,c_fill,g_auto,h_232,ar_16:9/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F160929095729-essential-spanish-dish-fideua-brindisa.jpg");
+	background-size: cover;
+
+}

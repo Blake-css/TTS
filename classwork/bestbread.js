@@ -53,8 +53,8 @@ var comp = Math.floor(Math.random()*3+1);
 
 switch (comp){
 
-
-	case 1:
+	//This sees that case 1 is set by rock
+	case 1:                             
 		if ( user === 'scissors' ){
 			console.log("You win");
 		}
@@ -65,3 +65,31 @@ switch (comp){
 			console.log("Its a tie");
 		}
 	}
+
+	//This sees that case 1 is set by paper
+	case 2:
+	                             
+		if ( user === 'scissors' ){
+			console.log("You win");
+		}
+		else if  (user === 'rock'){
+			console.log("You lose");
+		}
+		else {
+			console.log("Its a tie");
+		}
+	
+	
+	//This sees that case 1 is set by scissors
+	case 3:                             
+	
+		if ( user === 'paper' ){
+			console.log("You win");
+		}
+		else if  (user === 'papper'){
+			console.log("You lose");
+		}
+		else {
+			console.log("Its a tie");
+		}
+	
