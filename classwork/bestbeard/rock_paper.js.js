@@ -1,20 +1,25 @@
-//Blake's Best Beard
 
-var best= "Freshly Baked";
-var worst= "Sara lee";
-var forget_it= "Kroger";
-var blake_best= worst;	
 
-// now the If else
+document.getElementById('rock').addEventListener('click',function(){var user_choice = 'rock'});
 
-if (blake_best===best)
-	{
-		console.log("Man you like fresh bread")
-	}
-	else if (blake_best===worst)
-	{
-		console.log("You and Shahz should be best friend")	
-	}
-	else {
-		console.log("Forget it just kill yourself")
-	}
+document.getElementById('paper').addEventListener('click',function(){var user_choice = 'paper'});
+
+document.getElementById('scissors').addEventListener('click',function(){var user_choice = 'scissors'});
+
+var user; //declaration
+function user(choice) {
+    user = choice; //assignment
+}
+var a = Math.floor(Math.random()*3);
+
+
+var fruit = ["apples","Banana","Orange"];
+
+for (var i = 0; i < fruit.length; i++) { 
+   console.log(fruit[i])
+}
+
+
+
+
+

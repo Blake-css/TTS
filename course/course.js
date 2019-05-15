@@ -30,7 +30,7 @@ var course = {
 		skills : ['html', 'css', 'git'],
 		equipment: {
 			laptop: true,
-			OSOptions: ['linux', 'OSX']
+			OSOptions: ['linux', 'osx']
 		}
 	}
 };

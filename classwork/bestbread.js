@@ -55,18 +55,18 @@ switch (comp){
 
 	//This sees that case 1 is set by rock
 	case 1:                             
-		if ( user === 'scissors' ){
+		if ( user === 'paper' ){
 			console.log("You win");
 		}
-		else if  (user === 'paper'){
+		else if  (user === 'scissors'){
 			console.log("You lose");
 		}
 		else {
 			console.log("Its a tie");
 		}
-	}
+	
 
-	//This sees that case 1 is set by paper
+	//This sees that case 2 is set by paper
 	case 2:
 	                             
 		if ( user === 'scissors' ){
@@ -80,16 +80,16 @@ switch (comp){
 		}
 	
 	
-	//This sees that case 1 is set by scissors
+	//This sees that case 3 is set by scissors
 	case 3:                             
 	
-		if ( user === 'paper' ){
+		if ( user === 'rock' ){
 			console.log("You win");
 		}
-		else if  (user === 'papper'){
+		else if  (user === 'paper'){
 			console.log("You lose");
 		}
 		else {
 			console.log("Its a tie");
 		}
-	
+	}

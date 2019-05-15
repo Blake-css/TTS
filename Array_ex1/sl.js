@@ -29,12 +29,7 @@ var shopping_cart = []
 shopping_cart.push(shopping.pop())
 console.log(shopping_cart)
 
-shopping.reverse()
-console.log(shopping)
-
-var shopping_cart = [shopping.pop()];
-shopping_cart.push(shopping.pop())
-console.log(shopping_cart)
+shopping_cart.shift
 
 
 	//console.log(shopping)
