@@ -1,5 +1,5 @@
 package black_jack;
-import java.util.Random;
+import java.util.*;
 
 public class black_jack {
 
@@ -49,12 +49,16 @@ public class black_jack {
             Scanner input = new Scanner(System.in);
             System.out.println(" Do you want to hit or stand");
             String answer = input.nextLine();
-            if ( answer.equalsIgnoreCase("hit")){
+            while ( answer.equalsIgnoreCase("hit")){
                 Random rand1 = new Random();
                 int humanCard = rand1.nextInt(9) + 2;
                 int newTotal = humanCard+=total;
                 System.out.println(newTotal);
-            }
+            } if (total < 21){
+            Scanner input = new Scanner(System.in);
+            System.out.println(" Do you want to hit or stand");
+            String answer = input.nextLine();
+            if ( answer.equalsIgnoreCase("hit")){
 
          }
         
@@ -90,3 +94,26 @@ public class black_jack {
     }
 
 }
+
+public class LinkedList {
+    private Node first, last; 
+    //Declares private variables `first` and `last`, which are                              
+    //instances of Node objects, to keep track of the first and last                                
+    //nodes of the list.
+}
+
+
+LinkedList<String> animalList = new LinkedList<String>();
+animalList.add("frog");
+animalList.add("giraffe");
+animalList.add("buffalo");
+animalList.add("mongoose");
+
+animalList.addFirst("shark"); 
+]//Puts shark as the first element in the ArrayList
+animalList.addLast("koala"); 
+//Puts koala as the last element in the ArrayList
+    
+    
+animalList.add(3, "cuttlefish"); 
+

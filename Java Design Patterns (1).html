@@ -1,0 +1,1009 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0114)https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(1) -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta name="generator" content="pandoc">
+  <title>Java Design Patterns (1)</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print" href="./Java Design Patterns (1)_files/slidy.css">
+  <script src="./Java Design Patterns (1)_files/slidy.js.download" charset="utf-8" type="text/javascript"></script>
+</head>
+<body class=" single_slide" style="visibility: visible; font-size: 12pt;"><div class=" slidy_toc hidden"><div class=" toc-heading">Table of Contents</div>1. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(1)">What is a design Pattern?</a><br>2. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(2)">Java Design Patterns(2)</a><br>3. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(3)">Singleton Pattern</a><br>4. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(4)">Java Singleton Pattern</a><br>5. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(5)">Java Design Patterns(5)</a><br>6. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(6)">Eager initialization</a><br>7. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(7)">Static block initialization</a><br>8. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(8)">Lazy Initialization</a><br>9. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(9)">Thread Safe Singleton</a><br>10. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(10)">Bill Pugh Singleton Implementation</a><br>11. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(11)">Using Reflection to destroy Singleton Pattern</a><br>12. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(12)">Enum Singleton</a><br>13. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(13)">Serialization and Singleton</a><br>14. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(14)">Factory Pattern</a><br>15. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(15)">Factory Design Pattern Super Class</a><br>16. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(16)">Factory Design Pattern Sub Classes</a><br>17. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(17)">Factory Class</a><br>18. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(18)">Factory Design Pattern Advantages</a><br>19. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(19)">Factory Design Pattern Examples in JDK</a><br>20. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(20)">Abstract Factory</a><br>21. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(21)">Abstract Factory Design Pattern Super Class and Subclasses</a><br>22. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(22)">Factory Class for Each subclass</a><br>23. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(23)">Java Design Patterns(23)</a><br>24. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(24)">Java Design Patterns(24)</a><br>25. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(25)">Abstract Factory Design Pattern Examples in JDK</a><br>26. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(26)">Builder Pattern</a><br>27. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(27)">Java Design Patterns(27)</a><br>28. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(28)">Java Design Patterns(28)</a><br>29. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(29)">Java Design Patterns(29)</a><br>30. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(30)">Builder Design Pattern Example in JDK</a><br>31. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(31)">Prototype Pattern</a><br>32. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(32)">Prototype Design Pattern Example</a><br>33. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(33)">Java Design Patterns(33)</a><br>34. <a href="https://titus.techtalentsouth.com/pluginfile.php/24754/mod_resource/content/1/Java_Design_Patterns_slides.html#(34)">Java Design Patterns(34)</a></div>
+<div id="what-is-a-design-pattern" class="slide section level1 first-slide">
+<h1>What is a design Pattern?</h1>
+<p><strong>Design Patterns</strong> are very popular among software developers.</p>
+<p>A design pattern is a well-described solution to a common software problem.</p>
+<p>Some of the benefits of using design patterns are:</p>
+<ol style="list-style-type: decimal">
+<li>Design Patterns are already defined and provides <strong>industry standard approach</strong> to solve a recurring problem, so it saves time if we sensibly use the design pattern. There are many java design patterns that we can use in our java based projects.</li>
+</ol>
+<ol start="2" style="list-style-type: decimal">
+<li>Using design patterns promotes <strong>reusability</strong> that leads to more <strong>robust</strong> and highly maintainable code. It helps in reducing total cost of ownership (TCO) of the software product.</li>
+</ol>
+<ol start="3" style="list-style-type: decimal">
+<li>Since design patterns are already defined, it makes our code easy to understand and debug. It leads to faster development and new members of a team understand it easily.</li>
+</ol>
+<br><br></div>
+<div class="slide section level1 hidden">
+
+<p><img src="./Java Design Patterns (1)_files/java-design-patterns.png"></p>
+<p><strong>Java Design Patterns</strong> are divided into three categories – <strong>creational</strong>, <strong>structural</strong>, and <strong>behavioral</strong> design patterns.</p>
+<p>Here is a list of the java design patterns we will be covering in this lesson.</p>
+<p><strong>Creational Design Patterns</strong></p>
+<ul>
+<li>Singleton Pattern</li>
+</ul>
+<ul>
+<li>Factory Pattern</li>
+</ul>
+<ul>
+<li>Abstract Factory Pattern</li>
+</ul>
+<ul>
+<li>Builder Pattern</li>
+</ul>
+<ul>
+<li>Prototype Pattern</li>
+</ul>
+<p>Creational design patterns provide a solution to instantiate an object in the best possible way for specific situations.</p>
+<br><br></div>
+<div id="singleton-pattern" class="slide section level1 hidden">
+<h1>Singleton Pattern</h1>
+<p><strong>Java Singleton Pattern</strong> is one of the <strong>Gangs of Four Design patterns</strong> and comes in the <strong>Creational Design Pattern</strong> category.</p>
+<p>From the definition, it seems to be a very simple design pattern but when it comes to implementation, it comes with a lot of implementation concerns.</p>
+<p>The implementation of Java Singleton pattern has always been a controversial topic among developers.</p>
+<p>Here we will learn about Singleton design pattern principles, different ways to implement the Singleton design pattern and some of the best practices for its usage.</p>
+<p>Singleton pattern restricts the instantiation of a class and ensures that only one instance of the class exists in the java virtual machine.</p>
+<p>The singleton class must provide a global access point to get the instance of the class.</p>
+<p>Singleton pattern is used for logging, drivers objects, caching and thread pool.</p>
+<p>Singleton design pattern is also used in other design patterns like Abstract Factory, Builder, Prototype, Facade etc.</p>
+<p>Singleton design pattern is used in core java classes also, for example <code>java.lang.Runtime</code>, <code>java.awt.Desktop</code>.</p>
+<br><br></div>
+<div id="java-singleton-pattern" class="slide section level1 hidden">
+<h1>Java Singleton Pattern</h1>
+<p><img src="./Java Design Patterns (1)_files/java-singleton-pattern.jpg"></p>
+<p>To implement a Singleton pattern, we have different approaches but all of them have the following common concepts.</p>
+<ul>
+<li>Private constructor to restrict instantiation of the class from other classes.</li>
+<li>Private static variable of the same class that is the only instance of the class.</li>
+<li>Public static method that returns the instance of the class, this is the global access point for outer world to get the instance of the singleton class.</li>
+</ul>
+<br><br></div>
+<div class="slide section level1 hidden">
+
+<p>In further sections, we will learn different approaches of Singleton pattern implementation and design concerns with the implementation.</p>
+<ol style="list-style-type: decimal">
+<li>Eager initialization</li>
+<li>Static block initialization</li>
+<li>Lazy Initialization</li>
+<li>Thread Safe Singleton</li>
+<li>Bill Pugh Singleton Implementation</li>
+<li>Using Reflection to destroy Singleton Pattern</li>
+<li>Enum Singleton</li>
+<li>Serialization and Singleton</li>
+</ol>
+<br><br></div>
+<div id="eager-initialization" class="slide section level1 hidden">
+<h1>Eager initialization</h1>
+<p>In eager initialization, the instance of Singleton Class is created at the time of class loading, this is the easiest method to create a singleton class but it has a drawback that instance is created even though client application might not be using it.</p>
+<p>Here is the implementation of the static initialization singleton class.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1"></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.singleton;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">public</span> <span class="kw">class</span> EagerInitializedSingleton {</a>
+<a class="sourceLine" id="cb1-5" title="5">    </a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> EagerInitializedSingleton instance = <span class="kw">new</span> <span class="fu">EagerInitializedSingleton</span>();</a>
+<a class="sourceLine" id="cb1-7" title="7">    </a>
+<a class="sourceLine" id="cb1-8" title="8">    <span class="co">//private constructor to avoid client applications to use constructor</span></a>
+<a class="sourceLine" id="cb1-9" title="9">    <span class="kw">private</span> <span class="fu">EagerInitializedSingleton</span>(){}</a>
+<a class="sourceLine" id="cb1-10" title="10"></a>
+<a class="sourceLine" id="cb1-11" title="11">    <span class="kw">public</span> <span class="dt">static</span> EagerInitializedSingleton <span class="fu">getInstance</span>(){</a>
+<a class="sourceLine" id="cb1-12" title="12">        <span class="kw">return</span> instance;</a>
+<a class="sourceLine" id="cb1-13" title="13">    }</a>
+<a class="sourceLine" id="cb1-14" title="14">}</a></code></pre></div>
+<p>If your singleton class is not using a lot of resources, this is the approach to use. But in most of the scenarios, Singleton classes are created for resources such as File System, Database connections etc. We should avoid the instantiation until unless client calls the <code>getInstance</code> method. Also, this method doesn’t provide any options for exception handling.</p>
+<br><br></div>
+<div id="static-block-initialization" class="slide section level1 hidden">
+<h1>Static block initialization</h1>
+<p>Static block initialization implementation is similar to eager initialization, except that instance of class is created in the static block that provides option for exception handling .</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1"></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.singleton;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="kw">public</span> <span class="kw">class</span> StaticBlockSingleton {</a>
+<a class="sourceLine" id="cb2-5" title="5"></a>
+<a class="sourceLine" id="cb2-6" title="6">    <span class="kw">private</span> <span class="dt">static</span> StaticBlockSingleton instance;</a>
+<a class="sourceLine" id="cb2-7" title="7">    </a>
+<a class="sourceLine" id="cb2-8" title="8">    <span class="kw">private</span> <span class="fu">StaticBlockSingleton</span>(){}</a>
+<a class="sourceLine" id="cb2-9" title="9">    </a>
+<a class="sourceLine" id="cb2-10" title="10">    <span class="co">//static block initialization for exception handling</span></a>
+<a class="sourceLine" id="cb2-11" title="11">    <span class="dt">static</span>{</a>
+<a class="sourceLine" id="cb2-12" title="12">        <span class="kw">try</span>{</a>
+<a class="sourceLine" id="cb2-13" title="13">            instance = <span class="kw">new</span> <span class="fu">StaticBlockSingleton</span>();</a>
+<a class="sourceLine" id="cb2-14" title="14">        }<span class="kw">catch</span>(<span class="bu">Exception</span> e){</a>
+<a class="sourceLine" id="cb2-15" title="15">            <span class="kw">throw</span> <span class="kw">new</span> <span class="bu">RuntimeException</span>(<span class="st">"Exception occured in creating singleton instance"</span>);</a>
+<a class="sourceLine" id="cb2-16" title="16">        }</a>
+<a class="sourceLine" id="cb2-17" title="17">    }</a>
+<a class="sourceLine" id="cb2-18" title="18">    </a>
+<a class="sourceLine" id="cb2-19" title="19">    <span class="kw">public</span> <span class="dt">static</span> StaticBlockSingleton <span class="fu">getInstance</span>(){</a>
+<a class="sourceLine" id="cb2-20" title="20">        <span class="kw">return</span> instance;</a>
+<a class="sourceLine" id="cb2-21" title="21">    }</a>
+<a class="sourceLine" id="cb2-22" title="22">}</a></code></pre></div>
+<p>Both eager initialization and static block initialization creates the instance even before it’s being used and that is not the best practice to use. So in further sections, we will learn how to create a Singleton class that supports lazy initialization.</p>
+<br><br></div>
+<div id="lazy-initialization" class="slide section level1 hidden">
+<h1>Lazy Initialization</h1>
+<p>Lazy initialization method to implement Singleton pattern creates the instance in the global access method. Here is the sample code for creating Singleton class with this approach.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1"></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.singleton;</span></a>
+<a class="sourceLine" id="cb3-3" title="3"></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="kw">public</span> <span class="kw">class</span> LazyInitializedSingleton {</a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6">    <span class="kw">private</span> <span class="dt">static</span> LazyInitializedSingleton instance;</a>
+<a class="sourceLine" id="cb3-7" title="7">    </a>
+<a class="sourceLine" id="cb3-8" title="8">    <span class="kw">private</span> <span class="fu">LazyInitializedSingleton</span>(){}</a>
+<a class="sourceLine" id="cb3-9" title="9">    </a>
+<a class="sourceLine" id="cb3-10" title="10">    <span class="kw">public</span> <span class="dt">static</span> LazyInitializedSingleton <span class="fu">getInstance</span>(){</a>
+<a class="sourceLine" id="cb3-11" title="11">        <span class="kw">if</span>(instance == <span class="kw">null</span>){</a>
+<a class="sourceLine" id="cb3-12" title="12">            instance = <span class="kw">new</span> <span class="fu">LazyInitializedSingleton</span>();</a>
+<a class="sourceLine" id="cb3-13" title="13">        }</a>
+<a class="sourceLine" id="cb3-14" title="14">        <span class="kw">return</span> instance;</a>
+<a class="sourceLine" id="cb3-15" title="15">    }</a>
+<a class="sourceLine" id="cb3-16" title="16">}</a></code></pre></div>
+<p>The above implementation works fine in case of the single-threaded environment but when it comes to multithreaded systems, it can cause issues if multiple threads are inside the if condition at the same time. It will destroy the singleton pattern and both threads will get the different instances of the singleton class. In next section, we will see different ways to create a thread-safe singleton class.</p>
+<br><br></div>
+<div id="thread-safe-singleton" class="slide section level1 hidden">
+<h1>Thread Safe Singleton</h1>
+<p>The easier way to create a thread-safe singleton class is to make the global access method synchronized, so that only one thread can execute this method at a time. General implementation of this approach is like the below class.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb4-1" title="1"></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.singleton;</span></a>
+<a class="sourceLine" id="cb4-3" title="3"></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="kw">public</span> <span class="kw">class</span> ThreadSafeSingleton {</a>
+<a class="sourceLine" id="cb4-5" title="5"></a>
+<a class="sourceLine" id="cb4-6" title="6">    <span class="kw">private</span> <span class="dt">static</span> ThreadSafeSingleton instance;</a>
+<a class="sourceLine" id="cb4-7" title="7">    </a>
+<a class="sourceLine" id="cb4-8" title="8">    <span class="kw">private</span> <span class="fu">ThreadSafeSingleton</span>(){}</a>
+<a class="sourceLine" id="cb4-9" title="9">    </a>
+<a class="sourceLine" id="cb4-10" title="10">    <span class="kw">public</span> <span class="dt">static</span> <span class="kw">synchronized</span> ThreadSafeSingleton <span class="fu">getInstance</span>(){</a>
+<a class="sourceLine" id="cb4-11" title="11">        <span class="kw">if</span>(instance == <span class="kw">null</span>){</a>
+<a class="sourceLine" id="cb4-12" title="12">            instance = <span class="kw">new</span> <span class="fu">ThreadSafeSingleton</span>();</a>
+<a class="sourceLine" id="cb4-13" title="13">        }</a>
+<a class="sourceLine" id="cb4-14" title="14">        <span class="kw">return</span> instance;</a>
+<a class="sourceLine" id="cb4-15" title="15">    }</a>
+<a class="sourceLine" id="cb4-16" title="16">    </a>
+<a class="sourceLine" id="cb4-17" title="17">}</a></code></pre></div>
+<p>The Above implementation works fine and provides thread-safety but it reduces the performance because of the cost associated with the synchronized method, although we need it only for the first few threads who might create the separate instances. To avoid this extra overhead every time, <strong>double checked locking</strong> principle is used. In this approach, the synchronized block is used inside the if condition with an additional check to ensure that only one instance of a singleton class is created.</p>
+<p>The below code snippet provides the double-checked locking implementation.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb5-1" title="1"></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="kw">public</span> <span class="dt">static</span> ThreadSafeSingleton <span class="fu">getInstanceUsingDoubleLocking</span>(){</a>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="kw">if</span>(instance == <span class="kw">null</span>){</a>
+<a class="sourceLine" id="cb5-4" title="4">        <span class="kw">synchronized</span> (ThreadSafeSingleton.<span class="fu">class</span>) {</a>
+<a class="sourceLine" id="cb5-5" title="5">            <span class="kw">if</span>(instance == <span class="kw">null</span>){</a>
+<a class="sourceLine" id="cb5-6" title="6">                instance = <span class="kw">new</span> <span class="fu">ThreadSafeSingleton</span>();</a>
+<a class="sourceLine" id="cb5-7" title="7">            }</a>
+<a class="sourceLine" id="cb5-8" title="8">        }</a>
+<a class="sourceLine" id="cb5-9" title="9">    }</a>
+<a class="sourceLine" id="cb5-10" title="10">    <span class="kw">return</span> instance;</a>
+<a class="sourceLine" id="cb5-11" title="11">}</a></code></pre></div>
+<br><br></div>
+<div id="bill-pugh-singleton-implementation" class="slide section level1 hidden">
+<h1>Bill Pugh Singleton Implementation</h1>
+<p>Prior to Java 5, java memory model had a lot of issues and the above approaches used to fail in certain scenarios where too many threads try to get the instance of the Singleton class simultaneously. So Bill Pugh came up with a different approach to create the Singleton class using an inner static helper class. The Bill Pugh Singleton implementation goes like this;</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb6-1" title="1"></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.singleton;</span></a>
+<a class="sourceLine" id="cb6-3" title="3"></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="kw">public</span> <span class="kw">class</span> BillPughSingleton {</a>
+<a class="sourceLine" id="cb6-5" title="5"></a>
+<a class="sourceLine" id="cb6-6" title="6">    <span class="kw">private</span> <span class="fu">BillPughSingleton</span>(){}</a>
+<a class="sourceLine" id="cb6-7" title="7">    </a>
+<a class="sourceLine" id="cb6-8" title="8">    <span class="kw">private</span> <span class="dt">static</span> <span class="kw">class</span> SingletonHelper{</a>
+<a class="sourceLine" id="cb6-9" title="9">        <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> BillPughSingleton INSTANCE = <span class="kw">new</span> <span class="fu">BillPughSingleton</span>();</a>
+<a class="sourceLine" id="cb6-10" title="10">    }</a>
+<a class="sourceLine" id="cb6-11" title="11">    </a>
+<a class="sourceLine" id="cb6-12" title="12">    <span class="kw">public</span> <span class="dt">static</span> BillPughSingleton <span class="fu">getInstance</span>(){</a>
+<a class="sourceLine" id="cb6-13" title="13">        <span class="kw">return</span> SingletonHelper.<span class="fu">INSTANCE</span>;</a>
+<a class="sourceLine" id="cb6-14" title="14">    }</a>
+<a class="sourceLine" id="cb6-15" title="15">}</a></code></pre></div>
+<p>Notice the <strong>private inner static class</strong> that contains the instance of the singleton class. When the singleton class is loaded, <code>SingletonHelper</code> class is not loaded into memory and only when someone calls the <em>getInstance</em> method, this class gets loaded and creates the Singleton class instance.</p>
+<p>This is the most widely used approach for Singleton class as it doesn’t require synchronization. I am using this approach in many of my projects and it’s easy to understand and implement also.</p>
+<br><br></div>
+<div id="using-reflection-to-destroy-singleton-pattern" class="slide section level1 hidden">
+<h1>Using Reflection to destroy Singleton Pattern</h1>
+<p>Reflection can be used to destroy all the above singleton implementation approaches. Let’s see this with an example class.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb7-1" title="1"></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.singleton;</span></a>
+<a class="sourceLine" id="cb7-3" title="3"></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="kw">import</span><span class="im"> java.lang.reflect.Constructor;</span></a>
+<a class="sourceLine" id="cb7-5" title="5"></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="kw">public</span> <span class="kw">class</span> ReflectionSingletonTest {</a>
+<a class="sourceLine" id="cb7-7" title="7"></a>
+<a class="sourceLine" id="cb7-8" title="8">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</a>
+<a class="sourceLine" id="cb7-9" title="9">        EagerInitializedSingleton instanceOne = EagerInitializedSingleton.<span class="fu">getInstance</span>();</a>
+<a class="sourceLine" id="cb7-10" title="10">        EagerInitializedSingleton instanceTwo = <span class="kw">null</span>;</a>
+<a class="sourceLine" id="cb7-11" title="11">        <span class="kw">try</span> {</a>
+<a class="sourceLine" id="cb7-12" title="12">            <span class="bu">Constructor</span>[] constructors = EagerInitializedSingleton.<span class="fu">class</span>.<span class="fu">getDeclaredConstructors</span>();</a>
+<a class="sourceLine" id="cb7-13" title="13">            <span class="kw">for</span> (<span class="bu">Constructor</span> constructor : constructors) {</a>
+<a class="sourceLine" id="cb7-14" title="14">                <span class="co">//Below code will destroy the singleton pattern</span></a>
+<a class="sourceLine" id="cb7-15" title="15">                constructor.<span class="fu">setAccessible</span>(<span class="kw">true</span>);</a>
+<a class="sourceLine" id="cb7-16" title="16">                instanceTwo = (EagerInitializedSingleton) constructor.<span class="fu">newInstance</span>();</a>
+<a class="sourceLine" id="cb7-17" title="17">                <span class="kw">break</span>;</a>
+<a class="sourceLine" id="cb7-18" title="18">            }</a>
+<a class="sourceLine" id="cb7-19" title="19">        } <span class="kw">catch</span> (<span class="bu">Exception</span> e) {</a>
+<a class="sourceLine" id="cb7-20" title="20">            e.<span class="fu">printStackTrace</span>();</a>
+<a class="sourceLine" id="cb7-21" title="21">        }</a>
+<a class="sourceLine" id="cb7-22" title="22">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(instanceOne.<span class="fu">hashCode</span>());</a>
+<a class="sourceLine" id="cb7-23" title="23">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(instanceTwo.<span class="fu">hashCode</span>());</a>
+<a class="sourceLine" id="cb7-24" title="24">    }</a>
+<a class="sourceLine" id="cb7-25" title="25"></a>
+<a class="sourceLine" id="cb7-26" title="26">}</a></code></pre></div>
+<p>When you run the above test class, you will notice that hashCode of both the instances is not same that destroys the singleton pattern.</p>
+<br><br></div>
+<div id="enum-singleton" class="slide section level1 hidden">
+<h1>Enum Singleton</h1>
+<p>To overcome this situation with Reflection, Joshua Bloch suggests the use of Enum to implement Singleton design pattern as Java ensures that any enum value is instantiated only once in a Java program. Since Java Enum values are globally accessible, so is the singleton. The drawback is that the enum type is somewhat inflexible; for example, it does not allow lazy initialization.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb8-1" title="1"></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.singleton;</span></a>
+<a class="sourceLine" id="cb8-3" title="3"></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="kw">public</span> <span class="kw">enum</span> EnumSingleton {</a>
+<a class="sourceLine" id="cb8-5" title="5"></a>
+<a class="sourceLine" id="cb8-6" title="6">    INSTANCE;</a>
+<a class="sourceLine" id="cb8-7" title="7">    </a>
+<a class="sourceLine" id="cb8-8" title="8">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">doSomething</span>(){</a>
+<a class="sourceLine" id="cb8-9" title="9">        <span class="co">//do something</span></a>
+<a class="sourceLine" id="cb8-10" title="10">    }</a>
+<a class="sourceLine" id="cb8-11" title="11">}</a></code></pre></div>
+<br><br></div>
+<div id="serialization-and-singleton" class="slide section level1 hidden">
+<h1>Serialization and Singleton</h1>
+<p>Sometimes in distributed systems, we need to implement Serializable interface in Singleton class so that we can store its state in the file system and retrieve it at a later point of time. Here is a small singleton class that implements Serializable interface also.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb9-1" title="1"></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.singleton;</span></a>
+<a class="sourceLine" id="cb9-3" title="3"></a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="kw">import</span><span class="im"> java.io.Serializable;</span></a>
+<a class="sourceLine" id="cb9-5" title="5"></a>
+<a class="sourceLine" id="cb9-6" title="6"><span class="kw">public</span> <span class="kw">class</span> SerializedSingleton <span class="kw">implements</span> <span class="bu">Serializable</span>{</a>
+<a class="sourceLine" id="cb9-7" title="7"></a>
+<a class="sourceLine" id="cb9-8" title="8">    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> <span class="dt">long</span> serialVersionUID = -<span class="dv">7604766932017737115L</span>;</a>
+<a class="sourceLine" id="cb9-9" title="9"></a>
+<a class="sourceLine" id="cb9-10" title="10">    <span class="kw">private</span> <span class="fu">SerializedSingleton</span>(){}</a>
+<a class="sourceLine" id="cb9-11" title="11">    </a>
+<a class="sourceLine" id="cb9-12" title="12">    <span class="kw">private</span> <span class="dt">static</span> <span class="kw">class</span> SingletonHelper{</a>
+<a class="sourceLine" id="cb9-13" title="13">        <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> SerializedSingleton instance = <span class="kw">new</span> <span class="fu">SerializedSingleton</span>();</a>
+<a class="sourceLine" id="cb9-14" title="14">    }</a>
+<a class="sourceLine" id="cb9-15" title="15">    </a>
+<a class="sourceLine" id="cb9-16" title="16">    <span class="kw">public</span> <span class="dt">static</span> SerializedSingleton <span class="fu">getInstance</span>(){</a>
+<a class="sourceLine" id="cb9-17" title="17">        <span class="kw">return</span> SingletonHelper.<span class="fu">instance</span>;</a>
+<a class="sourceLine" id="cb9-18" title="18">    }</a>
+<a class="sourceLine" id="cb9-19" title="19">    </a>
+<a class="sourceLine" id="cb9-20" title="20">}</a></code></pre></div>
+<p>The problem with serialized singleton class is that whenever we deserialize it, it will create a new instance of the class. Let’s see it with a simple program.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb10-1" title="1"></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.singleton;</span></a>
+<a class="sourceLine" id="cb10-3" title="3"></a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="kw">import</span><span class="im"> java.io.FileInputStream;</span></a>
+<a class="sourceLine" id="cb10-5" title="5"><span class="kw">import</span><span class="im"> java.io.FileNotFoundException;</span></a>
+<a class="sourceLine" id="cb10-6" title="6"><span class="kw">import</span><span class="im"> java.io.FileOutputStream;</span></a>
+<a class="sourceLine" id="cb10-7" title="7"><span class="kw">import</span><span class="im"> java.io.IOException;</span></a>
+<a class="sourceLine" id="cb10-8" title="8"><span class="kw">import</span><span class="im"> java.io.ObjectInput;</span></a>
+<a class="sourceLine" id="cb10-9" title="9"><span class="kw">import</span><span class="im"> java.io.ObjectInputStream;</span></a>
+<a class="sourceLine" id="cb10-10" title="10"><span class="kw">import</span><span class="im"> java.io.ObjectOutput;</span></a>
+<a class="sourceLine" id="cb10-11" title="11"><span class="kw">import</span><span class="im"> java.io.ObjectOutputStream;</span></a>
+<a class="sourceLine" id="cb10-12" title="12"></a>
+<a class="sourceLine" id="cb10-13" title="13"><span class="kw">public</span> <span class="kw">class</span> SingletonSerializedTest {</a>
+<a class="sourceLine" id="cb10-14" title="14"></a>
+<a class="sourceLine" id="cb10-15" title="15">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) <span class="kw">throws</span> <span class="bu">FileNotFoundException</span>, <span class="bu">IOException</span>, <span class="bu">ClassNotFoundException</span> {</a>
+<a class="sourceLine" id="cb10-16" title="16">        SerializedSingleton instanceOne = SerializedSingleton.<span class="fu">getInstance</span>();</a>
+<a class="sourceLine" id="cb10-17" title="17">        <span class="bu">ObjectOutput</span> out = <span class="kw">new</span> <span class="bu">ObjectOutputStream</span>(<span class="kw">new</span> <span class="bu">FileOutputStream</span>(</a>
+<a class="sourceLine" id="cb10-18" title="18">                <span class="st">"filename.ser"</span>));</a>
+<a class="sourceLine" id="cb10-19" title="19">        out.<span class="fu">writeObject</span>(instanceOne);</a>
+<a class="sourceLine" id="cb10-20" title="20">        out.<span class="fu">close</span>();</a>
+<a class="sourceLine" id="cb10-21" title="21">        </a>
+<a class="sourceLine" id="cb10-22" title="22">        <span class="co">//deserailize from file to object</span></a>
+<a class="sourceLine" id="cb10-23" title="23">        <span class="bu">ObjectInput</span> in = <span class="kw">new</span> <span class="bu">ObjectInputStream</span>(<span class="kw">new</span> <span class="bu">FileInputStream</span>(</a>
+<a class="sourceLine" id="cb10-24" title="24">                <span class="st">"filename.ser"</span>));</a>
+<a class="sourceLine" id="cb10-25" title="25">        SerializedSingleton instanceTwo = (SerializedSingleton) in.<span class="fu">readObject</span>();</a>
+<a class="sourceLine" id="cb10-26" title="26">        in.<span class="fu">close</span>();</a>
+<a class="sourceLine" id="cb10-27" title="27">        </a>
+<a class="sourceLine" id="cb10-28" title="28">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">"instanceOne hashCode="</span>+instanceOne.<span class="fu">hashCode</span>());</a>
+<a class="sourceLine" id="cb10-29" title="29">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">"instanceTwo hashCode="</span>+instanceTwo.<span class="fu">hashCode</span>());</a>
+<a class="sourceLine" id="cb10-30" title="30">        </a>
+<a class="sourceLine" id="cb10-31" title="31">    }</a>
+<a class="sourceLine" id="cb10-32" title="32"></a>
+<a class="sourceLine" id="cb10-33" title="33">}</a></code></pre></div>
+<p>The output of the above program is;</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb11-1" title="1"></a>
+<a class="sourceLine" id="cb11-2" title="2">instanceOne hashCode=<span class="dv">2011117821</span></a>
+<a class="sourceLine" id="cb11-3" title="3">instanceTwo hashCode=<span class="dv">109647522</span></a></code></pre></div>
+<p>So it destroys the singleton pattern, to overcome this scenario all we need to do it provide the implementation of <code>readResolve()</code> method.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb12-1" title="1"></a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="kw">protected</span> <span class="bu">Object</span> <span class="fu">readResolve</span>() {</a>
+<a class="sourceLine" id="cb12-3" title="3">    <span class="kw">return</span> <span class="fu">getInstance</span>();</a>
+<a class="sourceLine" id="cb12-4" title="4">}</a></code></pre></div>
+<p>After this, you will notice that hashCode of both the instances is same in the test program.</p>
+<br><br></div>
+<div id="factory-pattern" class="slide section level1 hidden">
+<h1>Factory Pattern</h1>
+<p><strong>Factory Pattern</strong> is one of the <strong>Creational Design pattern</strong> and it’s widely used in JDK as well as frameworks like Spring and Struts.</p>
+<div class="figure">
+<img src="./Java Design Patterns (1)_files/factory-design-pattern.jpg" alt="factory design pattern, factory design pattern in java, factory pattern, factory method pattern, factory pattern example">
+<p class="caption">factory design pattern, factory design pattern in java, factory pattern, factory method pattern, factory pattern example</p>
+</div>
+<p>Factory design pattern is used when we have a super class with multiple sub-classes and based on input, we need to return one of the sub-class. This pattern takes out the responsibility of instantiation of a class from the client program to the factory class.</p>
+<p>Let’s first learn how to implement factory design pattern in java and then we will look into factory pattern advantages. We will see some of factory design pattern usage in JDK. Note that this pattern is also known as <strong>Factory Method Design Pattern</strong>.</p>
+<br><br></div>
+<div id="factory-design-pattern-super-class" class="slide section level1 hidden">
+<h1>Factory Design Pattern Super Class</h1>
+<p>A super class in factory design pattern can be an interface, abstract class or a normal java class. For our factory design pattern example, we have an abstract super class with overridden <code>toString()</code> method for testing purpose.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb13-1" title="1"></a>
+<a class="sourceLine" id="cb13-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.design.model;</span></a>
+<a class="sourceLine" id="cb13-3" title="3"></a>
+<a class="sourceLine" id="cb13-4" title="4"><span class="kw">public</span> <span class="kw">abstract</span> <span class="kw">class</span> Computer {</a>
+<a class="sourceLine" id="cb13-5" title="5">    </a>
+<a class="sourceLine" id="cb13-6" title="6">    <span class="kw">public</span> <span class="kw">abstract</span> <span class="bu">String</span> <span class="fu">getRAM</span>();</a>
+<a class="sourceLine" id="cb13-7" title="7">    <span class="kw">public</span> <span class="kw">abstract</span> <span class="bu">String</span> <span class="fu">getHDD</span>();</a>
+<a class="sourceLine" id="cb13-8" title="8">    <span class="kw">public</span> <span class="kw">abstract</span> <span class="bu">String</span> <span class="fu">getCPU</span>();</a>
+<a class="sourceLine" id="cb13-9" title="9">    </a>
+<a class="sourceLine" id="cb13-10" title="10">    <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb13-11" title="11">    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span>(){</a>
+<a class="sourceLine" id="cb13-12" title="12">        <span class="kw">return</span> <span class="st">"RAM= "</span>+<span class="kw">this</span>.<span class="fu">getRAM</span>()+<span class="st">", HDD="</span>+<span class="kw">this</span>.<span class="fu">getHDD</span>()+<span class="st">", CPU="</span>+<span class="kw">this</span>.<span class="fu">getCPU</span>();</a>
+<a class="sourceLine" id="cb13-13" title="13">    }</a>
+<a class="sourceLine" id="cb13-14" title="14">}</a></code></pre></div>
+<br><br></div>
+<div id="factory-design-pattern-sub-classes" class="slide section level1 hidden">
+<h1>Factory Design Pattern Sub Classes</h1>
+<p>Let’s say we have two sub-classes, PC and Server with the below implementation.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb14-1" title="1"></a>
+<a class="sourceLine" id="cb14-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.design.model;</span></a>
+<a class="sourceLine" id="cb14-3" title="3"></a>
+<a class="sourceLine" id="cb14-4" title="4"><span class="kw">public</span> <span class="kw">class</span> PC <span class="kw">extends</span> Computer {</a>
+<a class="sourceLine" id="cb14-5" title="5"></a>
+<a class="sourceLine" id="cb14-6" title="6">    <span class="kw">private</span> <span class="bu">String</span> ram;</a>
+<a class="sourceLine" id="cb14-7" title="7">    <span class="kw">private</span> <span class="bu">String</span> hdd;</a>
+<a class="sourceLine" id="cb14-8" title="8">    <span class="kw">private</span> <span class="bu">String</span> cpu;</a>
+<a class="sourceLine" id="cb14-9" title="9">    </a>
+<a class="sourceLine" id="cb14-10" title="10">    <span class="kw">public</span> <span class="fu">PC</span>(<span class="bu">String</span> ram, <span class="bu">String</span> hdd, <span class="bu">String</span> cpu){</a>
+<a class="sourceLine" id="cb14-11" title="11">        <span class="kw">this</span>.<span class="fu">ram</span>=ram;</a>
+<a class="sourceLine" id="cb14-12" title="12">        <span class="kw">this</span>.<span class="fu">hdd</span>=hdd;</a>
+<a class="sourceLine" id="cb14-13" title="13">        <span class="kw">this</span>.<span class="fu">cpu</span>=cpu;</a>
+<a class="sourceLine" id="cb14-14" title="14">    }</a>
+<a class="sourceLine" id="cb14-15" title="15">    <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb14-16" title="16">    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getRAM</span>() {</a>
+<a class="sourceLine" id="cb14-17" title="17">        <span class="kw">return</span> <span class="kw">this</span>.<span class="fu">ram</span>;</a>
+<a class="sourceLine" id="cb14-18" title="18">    }</a>
+<a class="sourceLine" id="cb14-19" title="19"></a>
+<a class="sourceLine" id="cb14-20" title="20">    <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb14-21" title="21">    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getHDD</span>() {</a>
+<a class="sourceLine" id="cb14-22" title="22">        <span class="kw">return</span> <span class="kw">this</span>.<span class="fu">hdd</span>;</a>
+<a class="sourceLine" id="cb14-23" title="23">    }</a>
+<a class="sourceLine" id="cb14-24" title="24"></a>
+<a class="sourceLine" id="cb14-25" title="25">    <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb14-26" title="26">    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getCPU</span>() {</a>
+<a class="sourceLine" id="cb14-27" title="27">        <span class="kw">return</span> <span class="kw">this</span>.<span class="fu">cpu</span>;</a>
+<a class="sourceLine" id="cb14-28" title="28">    }</a>
+<a class="sourceLine" id="cb14-29" title="29"></a>
+<a class="sourceLine" id="cb14-30" title="30">}</a></code></pre></div>
+<p>Notice that both the classes are extending <code>Computer</code> super class.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb15-1" title="1"></a>
+<a class="sourceLine" id="cb15-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.design.model;</span></a>
+<a class="sourceLine" id="cb15-3" title="3"></a>
+<a class="sourceLine" id="cb15-4" title="4"><span class="kw">public</span> <span class="kw">class</span> Server <span class="kw">extends</span> Computer {</a>
+<a class="sourceLine" id="cb15-5" title="5"></a>
+<a class="sourceLine" id="cb15-6" title="6">    <span class="kw">private</span> <span class="bu">String</span> ram;</a>
+<a class="sourceLine" id="cb15-7" title="7">    <span class="kw">private</span> <span class="bu">String</span> hdd;</a>
+<a class="sourceLine" id="cb15-8" title="8">    <span class="kw">private</span> <span class="bu">String</span> cpu;</a>
+<a class="sourceLine" id="cb15-9" title="9">    </a>
+<a class="sourceLine" id="cb15-10" title="10">    <span class="kw">public</span> <span class="fu">Server</span>(<span class="bu">String</span> ram, <span class="bu">String</span> hdd, <span class="bu">String</span> cpu){</a>
+<a class="sourceLine" id="cb15-11" title="11">        <span class="kw">this</span>.<span class="fu">ram</span>=ram;</a>
+<a class="sourceLine" id="cb15-12" title="12">        <span class="kw">this</span>.<span class="fu">hdd</span>=hdd;</a>
+<a class="sourceLine" id="cb15-13" title="13">        <span class="kw">this</span>.<span class="fu">cpu</span>=cpu;</a>
+<a class="sourceLine" id="cb15-14" title="14">    }</a>
+<a class="sourceLine" id="cb15-15" title="15">    <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb15-16" title="16">    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getRAM</span>() {</a>
+<a class="sourceLine" id="cb15-17" title="17">        <span class="kw">return</span> <span class="kw">this</span>.<span class="fu">ram</span>;</a>
+<a class="sourceLine" id="cb15-18" title="18">    }</a>
+<a class="sourceLine" id="cb15-19" title="19"></a>
+<a class="sourceLine" id="cb15-20" title="20">    <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb15-21" title="21">    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getHDD</span>() {</a>
+<a class="sourceLine" id="cb15-22" title="22">        <span class="kw">return</span> <span class="kw">this</span>.<span class="fu">hdd</span>;</a>
+<a class="sourceLine" id="cb15-23" title="23">    }</a>
+<a class="sourceLine" id="cb15-24" title="24"></a>
+<a class="sourceLine" id="cb15-25" title="25">    <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb15-26" title="26">    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getCPU</span>() {</a>
+<a class="sourceLine" id="cb15-27" title="27">        <span class="kw">return</span> <span class="kw">this</span>.<span class="fu">cpu</span>;</a>
+<a class="sourceLine" id="cb15-28" title="28">    }</a>
+<a class="sourceLine" id="cb15-29" title="29"></a>
+<a class="sourceLine" id="cb15-30" title="30">}</a></code></pre></div>
+<br><br></div>
+<div id="factory-class" class="slide section level1 hidden">
+<h1>Factory Class</h1>
+<p>Now that we have super classes and sub-classes ready, we can write our factory class. Here is the basic implementation.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb16-1" title="1"></a>
+<a class="sourceLine" id="cb16-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.design.factory;</span></a>
+<a class="sourceLine" id="cb16-3" title="3"></a>
+<a class="sourceLine" id="cb16-4" title="4"><span class="kw">import</span><span class="im"> com.journaldev.design.model.Computer;</span></a>
+<a class="sourceLine" id="cb16-5" title="5"><span class="kw">import</span><span class="im"> com.journaldev.design.model.PC;</span></a>
+<a class="sourceLine" id="cb16-6" title="6"><span class="kw">import</span><span class="im"> com.journaldev.design.model.Server;</span></a>
+<a class="sourceLine" id="cb16-7" title="7"></a>
+<a class="sourceLine" id="cb16-8" title="8"><span class="kw">public</span> <span class="kw">class</span> ComputerFactory {</a>
+<a class="sourceLine" id="cb16-9" title="9"></a>
+<a class="sourceLine" id="cb16-10" title="10">    <span class="kw">public</span> <span class="dt">static</span> Computer <span class="fu">getComputer</span>(<span class="bu">String</span> type, <span class="bu">String</span> ram, <span class="bu">String</span> hdd, <span class="bu">String</span> cpu){</a>
+<a class="sourceLine" id="cb16-11" title="11">        <span class="kw">if</span>(<span class="st">"PC"</span>.<span class="fu">equalsIgnoreCase</span>(type)) <span class="kw">return</span> <span class="kw">new</span> <span class="fu">PC</span>(ram, hdd, cpu);</a>
+<a class="sourceLine" id="cb16-12" title="12">        <span class="kw">else</span> <span class="kw">if</span>(<span class="st">"Server"</span>.<span class="fu">equalsIgnoreCase</span>(type)) <span class="kw">return</span> <span class="kw">new</span> <span class="fu">Server</span>(ram, hdd, cpu);</a>
+<a class="sourceLine" id="cb16-13" title="13">        </a>
+<a class="sourceLine" id="cb16-14" title="14">        <span class="kw">return</span> <span class="kw">null</span>;</a>
+<a class="sourceLine" id="cb16-15" title="15">    }</a>
+<a class="sourceLine" id="cb16-16" title="16">}</a></code></pre></div>
+<p>Some important points about Factory Design Pattern method are;</p>
+<ol style="list-style-type: decimal">
+<li>We can keep Factory class Singleton or we can keep the method that returns the subclass as static.</li>
+<li>Notice that based on the input parameter, different subclass is created and returned. <code>getComputer</code> is the factory method.</li>
+</ol>
+<div class="figure">
+<img src="./Java Design Patterns (1)_files/factory-pattern-java-450x327.png" alt="factory pattern java, factory pattern, factory design pattern, factory pattern class diagram">
+<p class="caption">factory pattern java, factory pattern, factory design pattern, factory pattern class diagram</p>
+</div>
+<p>Here is a simple test client program that uses the above factory design pattern implementation.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb17-1" title="1"></a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.design.test;</span></a>
+<a class="sourceLine" id="cb17-3" title="3"></a>
+<a class="sourceLine" id="cb17-4" title="4"><span class="kw">import</span><span class="im"> com.journaldev.design.factory.ComputerFactory;</span></a>
+<a class="sourceLine" id="cb17-5" title="5"><span class="kw">import</span><span class="im"> com.journaldev.design.model.Computer;</span></a>
+<a class="sourceLine" id="cb17-6" title="6"></a>
+<a class="sourceLine" id="cb17-7" title="7"><span class="kw">public</span> <span class="kw">class</span> TestFactory {</a>
+<a class="sourceLine" id="cb17-8" title="8"></a>
+<a class="sourceLine" id="cb17-9" title="9">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</a>
+<a class="sourceLine" id="cb17-10" title="10">        Computer pc = ComputerFactory.<span class="fu">getComputer</span>(<span class="st">"pc"</span>,<span class="st">"2 GB"</span>,<span class="st">"500 GB"</span>,<span class="st">"2.4 GHz"</span>);</a>
+<a class="sourceLine" id="cb17-11" title="11">        Computer server = ComputerFactory.<span class="fu">getComputer</span>(<span class="st">"server"</span>,<span class="st">"16 GB"</span>,<span class="st">"1 TB"</span>,<span class="st">"2.9 GHz"</span>);</a>
+<a class="sourceLine" id="cb17-12" title="12">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">"Factory PC Config::"</span>+pc);</a>
+<a class="sourceLine" id="cb17-13" title="13">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">"Factory Server Config::"</span>+server);</a>
+<a class="sourceLine" id="cb17-14" title="14">    }</a>
+<a class="sourceLine" id="cb17-15" title="15"></a>
+<a class="sourceLine" id="cb17-16" title="16">}</a></code></pre></div>
+<p>Output of above program is:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb18-1" title="1"></a>
+<a class="sourceLine" id="cb18-2" title="2">Factory PC Config::RAM= <span class="dv">2</span> GB, HDD=<span class="dv">500</span> GB, CPU=<span class="fl">2.</span><span class="dv">4</span> GHz</a>
+<a class="sourceLine" id="cb18-3" title="3">Factory Server Config::RAM= <span class="dv">16</span> GB, HDD=<span class="dv">1</span> TB, CPU=<span class="fl">2.</span><span class="dv">9</span> GHz</a></code></pre></div>
+<br><br></div>
+<div id="factory-design-pattern-advantages" class="slide section level1 hidden">
+<h1>Factory Design Pattern Advantages</h1>
+<ol style="list-style-type: decimal">
+<li>The Factory design pattern provides an approach to code for interface rather than implementation.</li>
+<li>Factory pattern removes the instantiation of actual implementation classes from client code. Factory pattern makes our code more robust, less coupled and easy to extend. For example, we can easily change PC class implementation because client program is unaware of this.</li>
+<li>Factory pattern provides abstraction between implementation and client classes through inheritance.</li>
+</ol>
+<br><br></div>
+<div id="factory-design-pattern-examples-in-jdk" class="slide section level1 hidden">
+<h1>Factory Design Pattern Examples in JDK</h1>
+<ol style="list-style-type: decimal">
+<li>java.util.Calendar, ResourceBundle and NumberFormat <code>getInstance()</code> methods uses Factory pattern.</li>
+<li><code>valueOf()</code> method in wrapper classes like Boolean, Integer etc.</li>
+</ol>
+<br><br></div>
+<div id="abstract-factory" class="slide section level1 hidden">
+<h1>Abstract Factory</h1>
+<p>Abstract Factory design pattern is one of the Creational patterns. Abstract Factory pattern is almost similar to <strong>Factory Pattern</strong> except the fact that its more like factory of factories.</p>
+<div class="figure">
+<img src="./Java Design Patterns (1)_files/abstract-factory-design-pattern.jpg" alt="abstract factory, abstract factory design pattern, abstract factory pattern">
+<p class="caption">abstract factory, abstract factory design pattern, abstract factory pattern</p>
+</div>
+<p>If you are familiar with <strong>factory design patterns in java</strong> you will notice that we have a single Factory class. This factory class returns different subclasses based on the input provided and factory class uses if-else or switch statement to achieve this.</p>
+<p>In the Abstract Factory pattern, we get rid of if-else block and have a factory class for each sub-class. Then an Abstract Factory class that will return the sub-class based on the input factory class. At first, it seems confusing but once you see the implementation, it’s really easy to grasp and understand the minor difference between Factory and Abstract Factory pattern.</p>
+<p>Like our factory pattern lesson, we will use the same superclass and sub-classes.</p>
+<br><br></div>
+<div id="abstract-factory-design-pattern-super-class-and-subclasses" class="slide section level1 hidden">
+<h1>Abstract Factory Design Pattern Super Class and Subclasses</h1>
+<p><code>Computer.java</code></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb19-1" title="1"></a>
+<a class="sourceLine" id="cb19-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.design.model;</span></a>
+<a class="sourceLine" id="cb19-3" title="3"> </a>
+<a class="sourceLine" id="cb19-4" title="4"><span class="kw">public</span> <span class="kw">abstract</span> <span class="kw">class</span> Computer {</a>
+<a class="sourceLine" id="cb19-5" title="5">     </a>
+<a class="sourceLine" id="cb19-6" title="6">    <span class="kw">public</span> <span class="kw">abstract</span> <span class="bu">String</span> <span class="fu">getRAM</span>();</a>
+<a class="sourceLine" id="cb19-7" title="7">    <span class="kw">public</span> <span class="kw">abstract</span> <span class="bu">String</span> <span class="fu">getHDD</span>();</a>
+<a class="sourceLine" id="cb19-8" title="8">    <span class="kw">public</span> <span class="kw">abstract</span> <span class="bu">String</span> <span class="fu">getCPU</span>();</a>
+<a class="sourceLine" id="cb19-9" title="9">     </a>
+<a class="sourceLine" id="cb19-10" title="10">    <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb19-11" title="11">    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span>(){</a>
+<a class="sourceLine" id="cb19-12" title="12">        <span class="kw">return</span> <span class="st">"RAM= "</span>+<span class="kw">this</span>.<span class="fu">getRAM</span>()+<span class="st">", HDD="</span>+<span class="kw">this</span>.<span class="fu">getHDD</span>()+<span class="st">", CPU="</span>+<span class="kw">this</span>.<span class="fu">getCPU</span>();</a>
+<a class="sourceLine" id="cb19-13" title="13">    }</a>
+<a class="sourceLine" id="cb19-14" title="14">}</a></code></pre></div>
+<p><code>PC.java</code></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb20-1" title="1"></a>
+<a class="sourceLine" id="cb20-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.design.model;</span></a>
+<a class="sourceLine" id="cb20-3" title="3"> </a>
+<a class="sourceLine" id="cb20-4" title="4"><span class="kw">public</span> <span class="kw">class</span> PC <span class="kw">extends</span> Computer {</a>
+<a class="sourceLine" id="cb20-5" title="5"> </a>
+<a class="sourceLine" id="cb20-6" title="6">    <span class="kw">private</span> <span class="bu">String</span> ram;</a>
+<a class="sourceLine" id="cb20-7" title="7">    <span class="kw">private</span> <span class="bu">String</span> hdd;</a>
+<a class="sourceLine" id="cb20-8" title="8">    <span class="kw">private</span> <span class="bu">String</span> cpu;</a>
+<a class="sourceLine" id="cb20-9" title="9">     </a>
+<a class="sourceLine" id="cb20-10" title="10">    <span class="kw">public</span> <span class="fu">PC</span>(<span class="bu">String</span> ram, <span class="bu">String</span> hdd, <span class="bu">String</span> cpu){</a>
+<a class="sourceLine" id="cb20-11" title="11">        <span class="kw">this</span>.<span class="fu">ram</span>=ram;</a>
+<a class="sourceLine" id="cb20-12" title="12">        <span class="kw">this</span>.<span class="fu">hdd</span>=hdd;</a>
+<a class="sourceLine" id="cb20-13" title="13">        <span class="kw">this</span>.<span class="fu">cpu</span>=cpu;</a>
+<a class="sourceLine" id="cb20-14" title="14">    }</a>
+<a class="sourceLine" id="cb20-15" title="15">    <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb20-16" title="16">    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getRAM</span>() {</a>
+<a class="sourceLine" id="cb20-17" title="17">        <span class="kw">return</span> <span class="kw">this</span>.<span class="fu">ram</span>;</a>
+<a class="sourceLine" id="cb20-18" title="18">    }</a>
+<a class="sourceLine" id="cb20-19" title="19"> </a>
+<a class="sourceLine" id="cb20-20" title="20">    <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb20-21" title="21">    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getHDD</span>() {</a>
+<a class="sourceLine" id="cb20-22" title="22">        <span class="kw">return</span> <span class="kw">this</span>.<span class="fu">hdd</span>;</a>
+<a class="sourceLine" id="cb20-23" title="23">    }</a>
+<a class="sourceLine" id="cb20-24" title="24"> </a>
+<a class="sourceLine" id="cb20-25" title="25">    <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb20-26" title="26">    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getCPU</span>() {</a>
+<a class="sourceLine" id="cb20-27" title="27">        <span class="kw">return</span> <span class="kw">this</span>.<span class="fu">cpu</span>;</a>
+<a class="sourceLine" id="cb20-28" title="28">    }</a>
+<a class="sourceLine" id="cb20-29" title="29"> </a>
+<a class="sourceLine" id="cb20-30" title="30">}</a></code></pre></div>
+<p><code>Server.java</code></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb21-1" title="1"></a>
+<a class="sourceLine" id="cb21-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.design.model;</span></a>
+<a class="sourceLine" id="cb21-3" title="3"> </a>
+<a class="sourceLine" id="cb21-4" title="4"> </a>
+<a class="sourceLine" id="cb21-5" title="5"><span class="kw">public</span> <span class="kw">class</span> Server <span class="kw">extends</span> Computer {</a>
+<a class="sourceLine" id="cb21-6" title="6"> </a>
+<a class="sourceLine" id="cb21-7" title="7">    <span class="kw">private</span> <span class="bu">String</span> ram;</a>
+<a class="sourceLine" id="cb21-8" title="8">    <span class="kw">private</span> <span class="bu">String</span> hdd;</a>
+<a class="sourceLine" id="cb21-9" title="9">    <span class="kw">private</span> <span class="bu">String</span> cpu;</a>
+<a class="sourceLine" id="cb21-10" title="10">     </a>
+<a class="sourceLine" id="cb21-11" title="11">    <span class="kw">public</span> <span class="fu">Server</span>(<span class="bu">String</span> ram, <span class="bu">String</span> hdd, <span class="bu">String</span> cpu){</a>
+<a class="sourceLine" id="cb21-12" title="12">        <span class="kw">this</span>.<span class="fu">ram</span>=ram;</a>
+<a class="sourceLine" id="cb21-13" title="13">        <span class="kw">this</span>.<span class="fu">hdd</span>=hdd;</a>
+<a class="sourceLine" id="cb21-14" title="14">        <span class="kw">this</span>.<span class="fu">cpu</span>=cpu;</a>
+<a class="sourceLine" id="cb21-15" title="15">    }</a>
+<a class="sourceLine" id="cb21-16" title="16">    <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb21-17" title="17">    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getRAM</span>() {</a>
+<a class="sourceLine" id="cb21-18" title="18">        <span class="kw">return</span> <span class="kw">this</span>.<span class="fu">ram</span>;</a>
+<a class="sourceLine" id="cb21-19" title="19">    }</a>
+<a class="sourceLine" id="cb21-20" title="20"> </a>
+<a class="sourceLine" id="cb21-21" title="21">    <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb21-22" title="22">    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getHDD</span>() {</a>
+<a class="sourceLine" id="cb21-23" title="23">        <span class="kw">return</span> <span class="kw">this</span>.<span class="fu">hdd</span>;</a>
+<a class="sourceLine" id="cb21-24" title="24">    }</a>
+<a class="sourceLine" id="cb21-25" title="25"> </a>
+<a class="sourceLine" id="cb21-26" title="26">    <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb21-27" title="27">    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getCPU</span>() {</a>
+<a class="sourceLine" id="cb21-28" title="28">        <span class="kw">return</span> <span class="kw">this</span>.<span class="fu">cpu</span>;</a>
+<a class="sourceLine" id="cb21-29" title="29">    }</a>
+<a class="sourceLine" id="cb21-30" title="30"> </a>
+<a class="sourceLine" id="cb21-31" title="31">}</a></code></pre></div>
+<br><br></div>
+<div id="factory-class-for-each-subclass" class="slide section level1 hidden">
+<h1>Factory Class for Each subclass</h1>
+<p>First of all we need to create a Abstract Factory interface or <strong>abstract class</strong></p>
+<p><code>ComputerAbstractFactory.java</code></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb22-1" title="1"></a>
+<a class="sourceLine" id="cb22-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.design.abstractfactory;</span></a>
+<a class="sourceLine" id="cb22-3" title="3"></a>
+<a class="sourceLine" id="cb22-4" title="4"><span class="kw">import</span><span class="im"> com.journaldev.design.model.Computer;</span></a>
+<a class="sourceLine" id="cb22-5" title="5"></a>
+<a class="sourceLine" id="cb22-6" title="6"><span class="kw">public</span> <span class="kw">interface</span> ComputerAbstractFactory {</a>
+<a class="sourceLine" id="cb22-7" title="7"></a>
+<a class="sourceLine" id="cb22-8" title="8">    <span class="kw">public</span> Computer <span class="fu">createComputer</span>();</a>
+<a class="sourceLine" id="cb22-9" title="9"></a>
+<a class="sourceLine" id="cb22-10" title="10">}</a></code></pre></div>
+<p>Notice that <code>createComputer()</code> method is returning an instance of super class <code>Computer</code>. Now our factory classes will implement this interface and return their respective sub-class.</p>
+<p><code>PCFactory.java</code></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb23-1" title="1"></a>
+<a class="sourceLine" id="cb23-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.design.abstractfactory;</span></a>
+<a class="sourceLine" id="cb23-3" title="3"></a>
+<a class="sourceLine" id="cb23-4" title="4"><span class="kw">import</span><span class="im"> com.journaldev.design.model.Computer;</span></a>
+<a class="sourceLine" id="cb23-5" title="5"><span class="kw">import</span><span class="im"> com.journaldev.design.model.PC;</span></a>
+<a class="sourceLine" id="cb23-6" title="6"></a>
+<a class="sourceLine" id="cb23-7" title="7"><span class="kw">public</span> <span class="kw">class</span> PCFactory <span class="kw">implements</span> ComputerAbstractFactory {</a>
+<a class="sourceLine" id="cb23-8" title="8"></a>
+<a class="sourceLine" id="cb23-9" title="9">    <span class="kw">private</span> <span class="bu">String</span> ram;</a>
+<a class="sourceLine" id="cb23-10" title="10">    <span class="kw">private</span> <span class="bu">String</span> hdd;</a>
+<a class="sourceLine" id="cb23-11" title="11">    <span class="kw">private</span> <span class="bu">String</span> cpu;</a>
+<a class="sourceLine" id="cb23-12" title="12">    </a>
+<a class="sourceLine" id="cb23-13" title="13">    <span class="kw">public</span> <span class="fu">PCFactory</span>(<span class="bu">String</span> ram, <span class="bu">String</span> hdd, <span class="bu">String</span> cpu){</a>
+<a class="sourceLine" id="cb23-14" title="14">        <span class="kw">this</span>.<span class="fu">ram</span>=ram;</a>
+<a class="sourceLine" id="cb23-15" title="15">        <span class="kw">this</span>.<span class="fu">hdd</span>=hdd;</a>
+<a class="sourceLine" id="cb23-16" title="16">        <span class="kw">this</span>.<span class="fu">cpu</span>=cpu;</a>
+<a class="sourceLine" id="cb23-17" title="17">    }</a>
+<a class="sourceLine" id="cb23-18" title="18">    <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb23-19" title="19">    <span class="kw">public</span> Computer <span class="fu">createComputer</span>() {</a>
+<a class="sourceLine" id="cb23-20" title="20">        <span class="kw">return</span> <span class="kw">new</span> <span class="fu">PC</span>(ram,hdd,cpu);</a>
+<a class="sourceLine" id="cb23-21" title="21">    }</a>
+<a class="sourceLine" id="cb23-22" title="22"></a>
+<a class="sourceLine" id="cb23-23" title="23">}</a></code></pre></div>
+<p>Similarly we will have a factory class for <code>Server</code> subclass.</p>
+<p><code>ServerFactory.java</code></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb24-1" title="1"></a>
+<a class="sourceLine" id="cb24-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.design.abstractfactory;</span></a>
+<a class="sourceLine" id="cb24-3" title="3"></a>
+<a class="sourceLine" id="cb24-4" title="4"><span class="kw">import</span><span class="im"> com.journaldev.design.model.Computer;</span></a>
+<a class="sourceLine" id="cb24-5" title="5"><span class="kw">import</span><span class="im"> com.journaldev.design.model.Server;</span></a>
+<a class="sourceLine" id="cb24-6" title="6"></a>
+<a class="sourceLine" id="cb24-7" title="7"><span class="kw">public</span> <span class="kw">class</span> ServerFactory <span class="kw">implements</span> ComputerAbstractFactory {</a>
+<a class="sourceLine" id="cb24-8" title="8"></a>
+<a class="sourceLine" id="cb24-9" title="9">    <span class="kw">private</span> <span class="bu">String</span> ram;</a>
+<a class="sourceLine" id="cb24-10" title="10">    <span class="kw">private</span> <span class="bu">String</span> hdd;</a>
+<a class="sourceLine" id="cb24-11" title="11">    <span class="kw">private</span> <span class="bu">String</span> cpu;</a>
+<a class="sourceLine" id="cb24-12" title="12">    </a>
+<a class="sourceLine" id="cb24-13" title="13">    <span class="kw">public</span> <span class="fu">ServerFactory</span>(<span class="bu">String</span> ram, <span class="bu">String</span> hdd, <span class="bu">String</span> cpu){</a>
+<a class="sourceLine" id="cb24-14" title="14">        <span class="kw">this</span>.<span class="fu">ram</span>=ram;</a>
+<a class="sourceLine" id="cb24-15" title="15">        <span class="kw">this</span>.<span class="fu">hdd</span>=hdd;</a>
+<a class="sourceLine" id="cb24-16" title="16">        <span class="kw">this</span>.<span class="fu">cpu</span>=cpu;</a>
+<a class="sourceLine" id="cb24-17" title="17">    }</a>
+<a class="sourceLine" id="cb24-18" title="18">    </a>
+<a class="sourceLine" id="cb24-19" title="19">    <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb24-20" title="20">    <span class="kw">public</span> Computer <span class="fu">createComputer</span>() {</a>
+<a class="sourceLine" id="cb24-21" title="21">        <span class="kw">return</span> <span class="kw">new</span> <span class="fu">Server</span>(ram,hdd,cpu);</a>
+<a class="sourceLine" id="cb24-22" title="22">    }</a>
+<a class="sourceLine" id="cb24-23" title="23"></a>
+<a class="sourceLine" id="cb24-24" title="24">}</a></code></pre></div>
+<p>Now we will create a consumer class that will provide the entry point for the client classes to create sub-classes.</p>
+<p><code>ComputerFactory.java</code></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb25-1" title="1"></a>
+<a class="sourceLine" id="cb25-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.design.abstractfactory;</span></a>
+<a class="sourceLine" id="cb25-3" title="3"></a>
+<a class="sourceLine" id="cb25-4" title="4"><span class="kw">import</span><span class="im"> com.journaldev.design.model.Computer;</span></a>
+<a class="sourceLine" id="cb25-5" title="5"></a>
+<a class="sourceLine" id="cb25-6" title="6"><span class="kw">public</span> <span class="kw">class</span> ComputerFactory {</a>
+<a class="sourceLine" id="cb25-7" title="7"></a>
+<a class="sourceLine" id="cb25-8" title="8">    <span class="kw">public</span> <span class="dt">static</span> Computer <span class="fu">getComputer</span>(ComputerAbstractFactory factory){</a>
+<a class="sourceLine" id="cb25-9" title="9">        <span class="kw">return</span> factory.<span class="fu">createComputer</span>();</a>
+<a class="sourceLine" id="cb25-10" title="10">    }</a>
+<a class="sourceLine" id="cb25-11" title="11">}</a></code></pre></div>
+<p>Notice that its a simple class and <code>getComputer</code> method is accepting <code>ComputerAbstractFactory</code>argument and returning <code>Computer</code> object. At this point the implementation must be getting clear.</p>
+<br><br></div>
+<div class="slide section level1 hidden">
+
+<p>Let’s write a simple test method and see how to use the abstract factory to get the instance of sub-classes.</p>
+<p><code>TestDesignPatterns.java</code></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb26-1" title="1"></a>
+<a class="sourceLine" id="cb26-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.design.test;</span></a>
+<a class="sourceLine" id="cb26-3" title="3"></a>
+<a class="sourceLine" id="cb26-4" title="4"><span class="kw">import</span><span class="im"> com.journaldev.design.abstractfactory.PCFactory;</span></a>
+<a class="sourceLine" id="cb26-5" title="5"><span class="kw">import</span><span class="im"> com.journaldev.design.abstractfactory.ServerFactory;</span></a>
+<a class="sourceLine" id="cb26-6" title="6"><span class="kw">import</span><span class="im"> com.journaldev.design.factory.ComputerFactory;</span></a>
+<a class="sourceLine" id="cb26-7" title="7"><span class="kw">import</span><span class="im"> com.journaldev.design.model.Computer;</span></a>
+<a class="sourceLine" id="cb26-8" title="8"></a>
+<a class="sourceLine" id="cb26-9" title="9"><span class="kw">public</span> <span class="kw">class</span> TestDesignPatterns {</a>
+<a class="sourceLine" id="cb26-10" title="10"></a>
+<a class="sourceLine" id="cb26-11" title="11">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</a>
+<a class="sourceLine" id="cb26-12" title="12">        <span class="fu">testAbstractFactory</span>();</a>
+<a class="sourceLine" id="cb26-13" title="13">    }</a>
+<a class="sourceLine" id="cb26-14" title="14"></a>
+<a class="sourceLine" id="cb26-15" title="15">    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">testAbstractFactory</span>() {</a>
+<a class="sourceLine" id="cb26-16" title="16">        Computer pc = com.<span class="fu">journaldev</span>.<span class="fu">design</span>.<span class="fu">abstractfactory</span>.<span class="fu">ComputerFactory</span>.<span class="fu">getComputer</span>(<span class="kw">new</span> <span class="fu">PCFactory</span>(<span class="st">"2 GB"</span>,<span class="st">"500 GB"</span>,<span class="st">"2.4 GHz"</span>));</a>
+<a class="sourceLine" id="cb26-17" title="17">        Computer server = com.<span class="fu">journaldev</span>.<span class="fu">design</span>.<span class="fu">abstractfactory</span>.<span class="fu">ComputerFactory</span>.<span class="fu">getComputer</span>(<span class="kw">new</span> <span class="fu">ServerFactory</span>(<span class="st">"16 GB"</span>,<span class="st">"1 TB"</span>,<span class="st">"2.9 GHz"</span>));</a>
+<a class="sourceLine" id="cb26-18" title="18">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">"AbstractFactory PC Config::"</span>+pc);</a>
+<a class="sourceLine" id="cb26-19" title="19">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">"AbstractFactory Server Config::"</span>+server);</a>
+<a class="sourceLine" id="cb26-20" title="20">    }</a>
+<a class="sourceLine" id="cb26-21" title="21">}</a></code></pre></div>
+<p>Output of the above program will be:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb27-1" title="1"></a>
+<a class="sourceLine" id="cb27-2" title="2">AbstractFactory PC Config::RAM= <span class="dv">2</span> GB, HDD=<span class="dv">500</span> GB, CPU=<span class="fl">2.</span><span class="dv">4</span> GHz</a>
+<a class="sourceLine" id="cb27-3" title="3">AbstractFactory Server Config::RAM= <span class="dv">16</span> GB, HDD=<span class="dv">1</span> TB, CPU=<span class="fl">2.</span><span class="dv">9</span> GHz</a></code></pre></div>
+<br><br></div>
+<div class="slide section level1 hidden">
+
+<p>Here is the class diagram of abstract factory design pattern implementation.</p>
+<div class="figure">
+<img src="./Java Design Patterns (1)_files/Abstract-Factory-Pattern-450x354.png" alt="Abstract Factory Pattern">
+<p class="caption">Abstract Factory Pattern</p>
+</div>
+<p><strong>Abstract Factory Design Pattern Benefits</strong></p>
+<ul>
+<li>Abstract Factory design pattern provides approach to code for interface rather than implementation.</li>
+<li>Abstract Factory pattern is “factory of factories” and can be easily extended to accommodate more products, for example we can add another sub-class Laptop and a factory LaptopFactory.</li>
+<li>Abstract Factory pattern is robust and avoid conditional logic of Factory pattern.</li>
+</ul>
+<br><br></div>
+<div id="abstract-factory-design-pattern-examples-in-jdk" class="slide section level1 hidden">
+<h1>Abstract Factory Design Pattern Examples in JDK</h1>
+<ul>
+<li>javax.xml.parsers.DocumentBuilderFactory#newInstance()</li>
+<li>javax.xml.transform.TransformerFactory#newInstance()</li>
+<li>javax.xml.xpath.XPathFactory#newInstance()</li>
+</ul>
+<br><br></div>
+<div id="builder-pattern" class="slide section level1 hidden">
+<h1>Builder Pattern</h1>
+<p><img src="./Java Design Patterns (1)_files/builder-design-pattern.jpg"></p>
+<p>Now we will look into Builder pattern in java. Builder design pattern is a <strong>creational design pattern</strong> like <strong>Factory Pattern</strong> and <strong>Abstract Factory Pattern</strong></p>
+<p>Builder pattern was introduced to solve some of the problems with Factory and Abstract Factory design patterns when the Object contains a lot of attributes.</p>
+<p>There are three major issues with Factory and Abstract Factory design patterns when the Object contains a lot of attributes.</p>
+<ol style="list-style-type: decimal">
+<li>Too many arguments to pass from client program to the Factory class that can be error prone because most of the time, the type of arguments are same and from client side its hard to maintain the order of the argument.</li>
+<li>Some of the parameters might be optional but in Factory pattern, we are forced to send all the parameters and optional parameters need to send as NULL.</li>
+<li>If the object is heavy and its creation is complex, then all that complexity will be part of Factory classes that is confusing.</li>
+</ol>
+<p>We can solve the issues with large number of parameters by providing a constructor with required parameters and then different setter methods to set the optional parameters.</p>
+<p>The problem with this approach is that the Object state will be <strong>inconsistent</strong> until unless all the attributes are set explicitly.</p>
+<p>Builder pattern solves the issue with large number of optional parameters and inconsistent state by providing a way to build the object step-by-step and provide a method that will actually return the final Object.</p>
+<br><br></div>
+<div class="slide section level1 hidden">
+
+<p>Let’s see how we can implement builder design pattern in java.</p>
+<ol style="list-style-type: decimal">
+<li>First of all you need to create a static nested class and then copy all the arguments from the outer class to the Builder class. We should follow the naming convention and if the class name is <code>Computer</code> then builder class should be named as <code>ComputerBuilder</code>.</li>
+<li>Java Builder class should have a public constructor with all the required attributes as parameters.</li>
+<li>Java Builder class should have methods to set the optional parameters and it should return the same Builder object after setting the optional attribute.</li>
+<li>The final step is to provide a <code>build()</code> method in the builder class that will return the Object needed by client program. For this we need to have a private constructor in the Class with Builder class as argument.</li>
+</ol>
+<br><br></div>
+<div class="slide section level1 hidden">
+
+<p>Here is the sample builder pattern example code where we have a Computer class and ComputerBuilder class to build it.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb28-1" title="1"></a>
+<a class="sourceLine" id="cb28-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.design.builder;</span></a>
+<a class="sourceLine" id="cb28-3" title="3"></a>
+<a class="sourceLine" id="cb28-4" title="4"><span class="kw">public</span> <span class="kw">class</span> Computer {</a>
+<a class="sourceLine" id="cb28-5" title="5">    </a>
+<a class="sourceLine" id="cb28-6" title="6">    <span class="co">//required parameters</span></a>
+<a class="sourceLine" id="cb28-7" title="7">    <span class="kw">private</span> <span class="bu">String</span> HDD;</a>
+<a class="sourceLine" id="cb28-8" title="8">    <span class="kw">private</span> <span class="bu">String</span> RAM;</a>
+<a class="sourceLine" id="cb28-9" title="9">    </a>
+<a class="sourceLine" id="cb28-10" title="10">    <span class="co">//optional parameters</span></a>
+<a class="sourceLine" id="cb28-11" title="11">    <span class="kw">private</span> <span class="dt">boolean</span> isGraphicsCardEnabled;</a>
+<a class="sourceLine" id="cb28-12" title="12">    <span class="kw">private</span> <span class="dt">boolean</span> isBluetoothEnabled;</a>
+<a class="sourceLine" id="cb28-13" title="13">    </a>
+<a class="sourceLine" id="cb28-14" title="14"></a>
+<a class="sourceLine" id="cb28-15" title="15">    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getHDD</span>() {</a>
+<a class="sourceLine" id="cb28-16" title="16">        <span class="kw">return</span> HDD;</a>
+<a class="sourceLine" id="cb28-17" title="17">    }</a>
+<a class="sourceLine" id="cb28-18" title="18"></a>
+<a class="sourceLine" id="cb28-19" title="19">    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getRAM</span>() {</a>
+<a class="sourceLine" id="cb28-20" title="20">        <span class="kw">return</span> RAM;</a>
+<a class="sourceLine" id="cb28-21" title="21">    }</a>
+<a class="sourceLine" id="cb28-22" title="22"></a>
+<a class="sourceLine" id="cb28-23" title="23">    <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">isGraphicsCardEnabled</span>() {</a>
+<a class="sourceLine" id="cb28-24" title="24">        <span class="kw">return</span> isGraphicsCardEnabled;</a>
+<a class="sourceLine" id="cb28-25" title="25">    }</a>
+<a class="sourceLine" id="cb28-26" title="26"></a>
+<a class="sourceLine" id="cb28-27" title="27">    <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">isBluetoothEnabled</span>() {</a>
+<a class="sourceLine" id="cb28-28" title="28">        <span class="kw">return</span> isBluetoothEnabled;</a>
+<a class="sourceLine" id="cb28-29" title="29">    }</a>
+<a class="sourceLine" id="cb28-30" title="30">    </a>
+<a class="sourceLine" id="cb28-31" title="31">    <span class="kw">private</span> <span class="fu">Computer</span>(ComputerBuilder builder) {</a>
+<a class="sourceLine" id="cb28-32" title="32">        <span class="kw">this</span>.<span class="fu">HDD</span>=builder.<span class="fu">HDD</span>;</a>
+<a class="sourceLine" id="cb28-33" title="33">        <span class="kw">this</span>.<span class="fu">RAM</span>=builder.<span class="fu">RAM</span>;</a>
+<a class="sourceLine" id="cb28-34" title="34">        <span class="kw">this</span>.<span class="fu">isGraphicsCardEnabled</span>=builder.<span class="fu">isGraphicsCardEnabled</span>;</a>
+<a class="sourceLine" id="cb28-35" title="35">        <span class="kw">this</span>.<span class="fu">isBluetoothEnabled</span>=builder.<span class="fu">isBluetoothEnabled</span>;</a>
+<a class="sourceLine" id="cb28-36" title="36">    }</a>
+<a class="sourceLine" id="cb28-37" title="37">    </a>
+<a class="sourceLine" id="cb28-38" title="38">    <span class="co">//Builder Class</span></a>
+<a class="sourceLine" id="cb28-39" title="39">    <span class="kw">public</span> <span class="dt">static</span> <span class="kw">class</span> ComputerBuilder{</a>
+<a class="sourceLine" id="cb28-40" title="40"></a>
+<a class="sourceLine" id="cb28-41" title="41">        <span class="co">// required parameters</span></a>
+<a class="sourceLine" id="cb28-42" title="42">        <span class="kw">private</span> <span class="bu">String</span> HDD;</a>
+<a class="sourceLine" id="cb28-43" title="43">        <span class="kw">private</span> <span class="bu">String</span> RAM;</a>
+<a class="sourceLine" id="cb28-44" title="44"></a>
+<a class="sourceLine" id="cb28-45" title="45">        <span class="co">// optional parameters</span></a>
+<a class="sourceLine" id="cb28-46" title="46">        <span class="kw">private</span> <span class="dt">boolean</span> isGraphicsCardEnabled;</a>
+<a class="sourceLine" id="cb28-47" title="47">        <span class="kw">private</span> <span class="dt">boolean</span> isBluetoothEnabled;</a>
+<a class="sourceLine" id="cb28-48" title="48">        </a>
+<a class="sourceLine" id="cb28-49" title="49">        <span class="kw">public</span> <span class="fu">ComputerBuilder</span>(<span class="bu">String</span> hdd, <span class="bu">String</span> ram){</a>
+<a class="sourceLine" id="cb28-50" title="50">            <span class="kw">this</span>.<span class="fu">HDD</span>=hdd;</a>
+<a class="sourceLine" id="cb28-51" title="51">            <span class="kw">this</span>.<span class="fu">RAM</span>=ram;</a>
+<a class="sourceLine" id="cb28-52" title="52">        }</a>
+<a class="sourceLine" id="cb28-53" title="53"></a>
+<a class="sourceLine" id="cb28-54" title="54">        <span class="kw">public</span> ComputerBuilder <span class="fu">setGraphicsCardEnabled</span>(<span class="dt">boolean</span> isGraphicsCardEnabled) {</a>
+<a class="sourceLine" id="cb28-55" title="55">            <span class="kw">this</span>.<span class="fu">isGraphicsCardEnabled</span> = isGraphicsCardEnabled;</a>
+<a class="sourceLine" id="cb28-56" title="56">            <span class="kw">return</span> <span class="kw">this</span>;</a>
+<a class="sourceLine" id="cb28-57" title="57">        }</a>
+<a class="sourceLine" id="cb28-58" title="58"></a>
+<a class="sourceLine" id="cb28-59" title="59">        <span class="kw">public</span> ComputerBuilder <span class="fu">setBluetoothEnabled</span>(<span class="dt">boolean</span> isBluetoothEnabled) {</a>
+<a class="sourceLine" id="cb28-60" title="60">            <span class="kw">this</span>.<span class="fu">isBluetoothEnabled</span> = isBluetoothEnabled;</a>
+<a class="sourceLine" id="cb28-61" title="61">            <span class="kw">return</span> <span class="kw">this</span>;</a>
+<a class="sourceLine" id="cb28-62" title="62">        }</a>
+<a class="sourceLine" id="cb28-63" title="63">        </a>
+<a class="sourceLine" id="cb28-64" title="64">        <span class="kw">public</span> Computer <span class="fu">build</span>(){</a>
+<a class="sourceLine" id="cb28-65" title="65">            <span class="kw">return</span> <span class="kw">new</span> <span class="fu">Computer</span>(<span class="kw">this</span>);</a>
+<a class="sourceLine" id="cb28-66" title="66">        }</a>
+<a class="sourceLine" id="cb28-67" title="67"></a>
+<a class="sourceLine" id="cb28-68" title="68">    }</a>
+<a class="sourceLine" id="cb28-69" title="69"></a>
+<a class="sourceLine" id="cb28-70" title="70">}</a></code></pre></div>
+<p>Notice that Computer class has only getter methods and no public constructor. So the only way to get a Computer object is through the ComputerBuilder class.</p>
+<br><br></div>
+<div class="slide section level1 hidden">
+
+<p>Here is a builder pattern example test program showing how to use Builder class to get the object.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb29-1" title="1"></a>
+<a class="sourceLine" id="cb29-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.design.test;</span></a>
+<a class="sourceLine" id="cb29-3" title="3"></a>
+<a class="sourceLine" id="cb29-4" title="4"><span class="kw">import</span><span class="im"> com.journaldev.design.builder.Computer;</span></a>
+<a class="sourceLine" id="cb29-5" title="5"></a>
+<a class="sourceLine" id="cb29-6" title="6"><span class="kw">public</span> <span class="kw">class</span> TestBuilderPattern {</a>
+<a class="sourceLine" id="cb29-7" title="7"></a>
+<a class="sourceLine" id="cb29-8" title="8">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</a>
+<a class="sourceLine" id="cb29-9" title="9">        <span class="co">//Using builder to get the object in a single line of code and </span></a>
+<a class="sourceLine" id="cb29-10" title="10">                <span class="co">//without any inconsistent state or arguments management issues     </span></a>
+<a class="sourceLine" id="cb29-11" title="11">        Computer comp = <span class="kw">new</span> Computer.<span class="fu">ComputerBuilder</span>(</a>
+<a class="sourceLine" id="cb29-12" title="12">                <span class="st">"500 GB"</span>, <span class="st">"2 GB"</span>).<span class="fu">setBluetoothEnabled</span>(<span class="kw">true</span>)</a>
+<a class="sourceLine" id="cb29-13" title="13">                .<span class="fu">setGraphicsCardEnabled</span>(<span class="kw">true</span>).<span class="fu">build</span>();</a>
+<a class="sourceLine" id="cb29-14" title="14">    }</a>
+<a class="sourceLine" id="cb29-15" title="15"></a>
+<a class="sourceLine" id="cb29-16" title="16">}</a></code></pre></div>
+<br><br></div>
+<div id="builder-design-pattern-example-in-jdk" class="slide section level1 hidden">
+<h1>Builder Design Pattern Example in JDK</h1>
+<p>Some of the builder pattern example in Java classes are;</p>
+<ul>
+<li>java.lang.StringBuilder#append() (unsynchronized)</li>
+<li>java.lang.StringBuffer#append() (synchronized)</li>
+</ul>
+<p>That’s all for builder design pattern in java.</p>
+<br><br></div>
+<div id="prototype-pattern" class="slide section level1 hidden">
+<h1>Prototype Pattern</h1>
+<p>Prototype design pattern is one of the Creational Design pattern, so it provides a mechanism of object creation.</p>
+<div class="figure">
+<img src="./Java Design Patterns (1)_files/prototype-design-pattern.jpg" alt="prototype design pattern">
+<p class="caption">prototype design pattern</p>
+</div>
+<p>Prototype design pattern is used when the Object creation is a costly affair and requires a lot of time and resources and you have a similar object already existing.</p>
+<p>Prototype pattern provides a mechanism to copy the original object to a new object and then modify it according to our needs.</p>
+<p>Prototype design pattern uses java cloning to copy the object.</p>
+<br><br></div>
+<div id="prototype-design-pattern-example" class="slide section level1 hidden">
+<h1>Prototype Design Pattern Example</h1>
+<p>It would be easy to understand prototype design pattern with an example.</p>
+<p>Suppose we have an Object that loads data from database.</p>
+<p>Now we need to modify this data in our program multiple times, so it’s not a good idea to create the Object using <code>new</code> keyword and load all the data again from database.</p>
+<p>The better approach would be to clone the existing object into a new object and then do the data manipulation.</p>
+<p>Prototype design pattern mandates that the Object which you are copying should provide the copying feature.</p>
+<p>It should not be done by any other class.</p>
+<p>However whether to use shallow or deep copy of the Object properties depends on the requirements and its a design decision.</p>
+<br><br></div>
+<div class="slide section level1 hidden">
+
+<p>Here is a sample program showing Prototype design pattern example in java.</p>
+<p><code>Employees.java</code></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb30-1" title="1"></a>
+<a class="sourceLine" id="cb30-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.design.prototype;</span></a>
+<a class="sourceLine" id="cb30-3" title="3"></a>
+<a class="sourceLine" id="cb30-4" title="4"><span class="kw">import</span><span class="im"> java.util.ArrayList;</span></a>
+<a class="sourceLine" id="cb30-5" title="5"><span class="kw">import</span><span class="im"> java.util.List;</span></a>
+<a class="sourceLine" id="cb30-6" title="6"></a>
+<a class="sourceLine" id="cb30-7" title="7"><span class="kw">public</span> <span class="kw">class</span> Employees <span class="kw">implements</span> <span class="bu">Cloneable</span>{</a>
+<a class="sourceLine" id="cb30-8" title="8"></a>
+<a class="sourceLine" id="cb30-9" title="9">    <span class="kw">private</span> <span class="bu">List</span>&lt;<span class="bu">String</span>&gt; empList;</a>
+<a class="sourceLine" id="cb30-10" title="10">    </a>
+<a class="sourceLine" id="cb30-11" title="11">    <span class="kw">public</span> <span class="fu">Employees</span>(){</a>
+<a class="sourceLine" id="cb30-12" title="12">        empList = <span class="kw">new</span> <span class="bu">ArrayList</span>&lt;<span class="bu">String</span>&gt;();</a>
+<a class="sourceLine" id="cb30-13" title="13">    }</a>
+<a class="sourceLine" id="cb30-14" title="14">    </a>
+<a class="sourceLine" id="cb30-15" title="15">    <span class="kw">public</span> <span class="fu">Employees</span>(<span class="bu">List</span>&lt;<span class="bu">String</span>&gt; list){</a>
+<a class="sourceLine" id="cb30-16" title="16">        <span class="kw">this</span>.<span class="fu">empList</span>=list;</a>
+<a class="sourceLine" id="cb30-17" title="17">    }</a>
+<a class="sourceLine" id="cb30-18" title="18">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">loadData</span>(){</a>
+<a class="sourceLine" id="cb30-19" title="19">        <span class="co">//read all employees from database and put into the list</span></a>
+<a class="sourceLine" id="cb30-20" title="20">        empList.<span class="fu">add</span>(<span class="st">"Pankaj"</span>);</a>
+<a class="sourceLine" id="cb30-21" title="21">        empList.<span class="fu">add</span>(<span class="st">"Raj"</span>);</a>
+<a class="sourceLine" id="cb30-22" title="22">        empList.<span class="fu">add</span>(<span class="st">"David"</span>);</a>
+<a class="sourceLine" id="cb30-23" title="23">        empList.<span class="fu">add</span>(<span class="st">"Lisa"</span>);</a>
+<a class="sourceLine" id="cb30-24" title="24">    }</a>
+<a class="sourceLine" id="cb30-25" title="25">    </a>
+<a class="sourceLine" id="cb30-26" title="26">    <span class="kw">public</span> <span class="bu">List</span>&lt;<span class="bu">String</span>&gt; <span class="fu">getEmpList</span>() {</a>
+<a class="sourceLine" id="cb30-27" title="27">        <span class="kw">return</span> empList;</a>
+<a class="sourceLine" id="cb30-28" title="28">    }</a>
+<a class="sourceLine" id="cb30-29" title="29"></a>
+<a class="sourceLine" id="cb30-30" title="30">    <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb30-31" title="31">    <span class="kw">public</span> <span class="bu">Object</span> <span class="fu">clone</span>() <span class="kw">throws</span> <span class="bu">CloneNotSupportedException</span>{</a>
+<a class="sourceLine" id="cb30-32" title="32">            <span class="bu">List</span>&lt;<span class="bu">String</span>&gt; temp = <span class="kw">new</span> <span class="bu">ArrayList</span>&lt;<span class="bu">String</span>&gt;();</a>
+<a class="sourceLine" id="cb30-33" title="33">            <span class="kw">for</span>(<span class="bu">String</span> s : <span class="kw">this</span>.<span class="fu">getEmpList</span>()){</a>
+<a class="sourceLine" id="cb30-34" title="34">                temp.<span class="fu">add</span>(s);</a>
+<a class="sourceLine" id="cb30-35" title="35">            }</a>
+<a class="sourceLine" id="cb30-36" title="36">            <span class="kw">return</span> <span class="kw">new</span> <span class="fu">Employees</span>(temp);</a>
+<a class="sourceLine" id="cb30-37" title="37">    }</a>
+<a class="sourceLine" id="cb30-38" title="38">    </a>
+<a class="sourceLine" id="cb30-39" title="39">}</a></code></pre></div>
+<p>Notice that the <code>clone</code> method is overridden to provide a deep copy of the employees list.</p>
+<br><br></div>
+<div class="slide section level1 hidden">
+
+<p>Here is the prototype design pattern example test program that will show the benefit of prototype pattern.</p>
+<p><code>PrototypePatternTest.java</code></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb31-1" title="1"></a>
+<a class="sourceLine" id="cb31-2" title="2"><span class="kw">package</span><span class="im"> com.journaldev.design.test;</span></a>
+<a class="sourceLine" id="cb31-3" title="3"></a>
+<a class="sourceLine" id="cb31-4" title="4"><span class="kw">import</span><span class="im"> java.util.List;</span></a>
+<a class="sourceLine" id="cb31-5" title="5"></a>
+<a class="sourceLine" id="cb31-6" title="6"><span class="kw">import</span><span class="im"> com.journaldev.design.prototype.Employees;</span></a>
+<a class="sourceLine" id="cb31-7" title="7"></a>
+<a class="sourceLine" id="cb31-8" title="8"><span class="kw">public</span> <span class="kw">class</span> PrototypePatternTest {</a>
+<a class="sourceLine" id="cb31-9" title="9"></a>
+<a class="sourceLine" id="cb31-10" title="10">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) <span class="kw">throws</span> <span class="bu">CloneNotSupportedException</span> {</a>
+<a class="sourceLine" id="cb31-11" title="11">        Employees emps = <span class="kw">new</span> <span class="fu">Employees</span>();</a>
+<a class="sourceLine" id="cb31-12" title="12">        emps.<span class="fu">loadData</span>();</a>
+<a class="sourceLine" id="cb31-13" title="13">        </a>
+<a class="sourceLine" id="cb31-14" title="14">        <span class="co">//Use the clone method to get the Employee object</span></a>
+<a class="sourceLine" id="cb31-15" title="15">        Employees empsNew = (Employees) emps.<span class="fu">clone</span>();</a>
+<a class="sourceLine" id="cb31-16" title="16">        Employees empsNew1 = (Employees) emps.<span class="fu">clone</span>();</a>
+<a class="sourceLine" id="cb31-17" title="17">        <span class="bu">List</span>&lt;<span class="bu">String</span>&gt; list = empsNew.<span class="fu">getEmpList</span>();</a>
+<a class="sourceLine" id="cb31-18" title="18">        list.<span class="fu">add</span>(<span class="st">"John"</span>);</a>
+<a class="sourceLine" id="cb31-19" title="19">        <span class="bu">List</span>&lt;<span class="bu">String</span>&gt; list1 = empsNew1.<span class="fu">getEmpList</span>();</a>
+<a class="sourceLine" id="cb31-20" title="20">        list1.<span class="fu">remove</span>(<span class="st">"Pankaj"</span>);</a>
+<a class="sourceLine" id="cb31-21" title="21">        </a>
+<a class="sourceLine" id="cb31-22" title="22">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">"emps List: "</span>+emps.<span class="fu">getEmpList</span>());</a>
+<a class="sourceLine" id="cb31-23" title="23">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">"empsNew List: "</span>+list);</a>
+<a class="sourceLine" id="cb31-24" title="24">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">"empsNew1 List: "</span>+list1);</a>
+<a class="sourceLine" id="cb31-25" title="25">    }</a>
+<a class="sourceLine" id="cb31-26" title="26"></a>
+<a class="sourceLine" id="cb31-27" title="27">}</a></code></pre></div>
+<p>Output of the above prototype design pattern example program is:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb32-1" title="1"></a>
+<a class="sourceLine" id="cb32-2" title="2">emps <span class="bu">List</span>: [Pankaj, Raj, David, Lisa]</a>
+<a class="sourceLine" id="cb32-3" title="3">empsNew <span class="bu">List</span>: [Pankaj, Raj, David, Lisa, John]</a>
+<a class="sourceLine" id="cb32-4" title="4">empsNew1 <span class="bu">List</span>: [Raj, David, Lisa]</a></code></pre></div>
+<p>If the object cloning was not provided, we will have to make database call to fetch the employee list every time. Then do the manipulations that would have been resource and time consuming.</p>
+<br><br></div>
+
+
+<div class="toolbar" tabindex="0" style="display: block;"><div style="float: right; text-align: right"><span>slide 1/34</span></div><div style="text-align: left"><span style="color: rgb(240, 240, 240);">* </span><a href="http://www.w3.org/Talks/Tools/Slidy2/help/help.html" title="Navigate with mouse click, space bar, Cursor Left/Right, or Pg Up and Pg Dn. Use S and B to change font size.">help?</a> <a href="javascript:w3c_slidy.toggle_table_of_contents()" title="table of contents">contents?</a> </div></div></body></html>
